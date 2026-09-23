@@ -24,7 +24,7 @@ public interface ModItems {
         "dimensional_tears_bottle",
         DimensionalTearsBottleItem::new,
             new Item.Properties()
-                .food(DimensionalTearsBottleItem.FOOD_PROPERTIES)
+                .food(DimensionalTearsBottleItem.FOOD_PROPERTIES, DimensionalTearsBottleItem.CONSUMABLE_PROPERTIES)
                 .stacksTo(16)
                 .rarity(Rarity.UNCOMMON)
                 .craftRemainder(Items.GLASS_BOTTLE)

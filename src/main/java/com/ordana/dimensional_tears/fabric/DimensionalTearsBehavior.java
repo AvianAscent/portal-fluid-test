@@ -58,7 +58,7 @@ public class DimensionalTearsBehavior implements FluidBehavior {
 
     @Override
     public boolean canSprintInFluid(TagKey<Fluid> fluid, LivingEntity entity) {
-        return FluidBehavior.super.canSprintInFluid(fluid, entity);
+        return false;
     }
 }
 //?}

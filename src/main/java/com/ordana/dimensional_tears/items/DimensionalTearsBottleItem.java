@@ -36,6 +36,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.Consumable;
+import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
@@ -62,6 +64,7 @@ public class DimensionalTearsBottleItem extends Item implements RhymingGaslightT
         .saturationModifier(0F)
         .alwaysEdible()
         .build();
+    public static final Consumable CONSUMABLE_PROPERTIES = Consumables.defaultDrink().build();
 
     public DimensionalTearsBottleItem(Properties properties) {
         super(properties);

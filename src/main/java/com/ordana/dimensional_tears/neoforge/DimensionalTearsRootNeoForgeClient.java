@@ -1,4 +1,5 @@
-package com.ordana.dimensional_tears.neoforge;
+//? neoforge {
+/*package com.ordana.dimensional_tears.neoforge;
 
 import com.ordana.dimensional_tears.ClientHelper;
 import com.ordana.dimensional_tears.DimensionalTearsClient;
@@ -33,3 +34,4 @@ public class DimensionalTearsRootNeoForgeClient {
         event.registerFluidType(new DimensionalTearsFluidRenderer(), ModFluidTypes.DIMENSIONAL_TEARS_TYPE.get());
     }
 }
+*///?}

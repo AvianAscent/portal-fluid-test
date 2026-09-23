@@ -26,8 +26,10 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.neoforged.fml.loading.FMLPaths;
+//? neoforge {
+/*import net.neoforged.fml.loading.FMLPaths;
 import net.neoforged.neoforge.network.PacketDistributor;
+*///?}
 import org.jetbrains.annotations.Contract;
 
 import java.nio.file.Path;
