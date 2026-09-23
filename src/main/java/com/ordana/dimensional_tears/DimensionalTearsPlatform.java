@@ -50,14 +50,18 @@ public class DimensionalTearsPlatform {
     }
 
     public static boolean isEyeInDimTears(Entity entity) {
+        //? fabric
         return entity.isEyeInFluid(ModTags.DIMENSIONAL_TEARS);
-//        return DimensionalTearsRoot.isInitiated() && entity.isEyeInFluidType(ModFluidTypes.DIMENSIONAL_TEARS_TYPE.get());
+        //? neoforge
+        //return DimensionalTearsRoot.isInitiated() && entity.isEyeInFluidType(ModFluidTypes.DIMENSIONAL_TEARS_TYPE.get());
     }
 
     @Contract
     public static double getDimTearsHeight(Entity entity) {
+        //? fabric
         return entity.getFluidHeight(ModTags.DIMENSIONAL_TEARS);
-//        return entity.getFluidTypeHeight(ModFluidTypes.DIMENSIONAL_TEARS_TYPE.get());
+        //? neoforge
+        //return entity.getFluidTypeHeight(ModFluidTypes.DIMENSIONAL_TEARS_TYPE.get());
     }
 
     public static boolean isInDimTears(Entity entity) {

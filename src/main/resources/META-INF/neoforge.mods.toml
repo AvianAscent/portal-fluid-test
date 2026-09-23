@@ -1,6 +1,6 @@
 modLoader = "javafml"
 loaderVersion = "[4,)"
-issueTrackerURL = "https://github.com/AstralOrdana/dimensional_tears/issues"
+issueTrackerURL = "https://github.com/Silversmith-Mods/portal-fluid/issues"
 license = "LGPLv3"
 
 [[mods]]
@@ -13,6 +13,7 @@ description = '''
 Rhymes with "fears" or "scares"
 '''
 logoFile = "icon.png"
+iconFile = "icon.png"
 
 [[dependencies.dimensional_tears]]
 modId = "neoforge"

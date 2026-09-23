@@ -45,9 +45,6 @@ jsonlang {
 
 repositories {
     mavenLocal()
-    maven ( "https://maven.minecraftforge.net" ) {
-        name = "Minecraft Forge"
-    }
     maven {
         name = "shedaniel (Cloth Config)"
         url = uri("https://maven.shedaniel.me/")
@@ -147,6 +144,8 @@ dependencies {
     compileOnly("maven.modrinth:modmenu:${property("deps.modmenu")}")
     localRuntime("maven.modrinth:modmenu:${property("deps.modmenu")}")
     localRuntime("maven.modrinth:datapack-error-viewer:1.0.0+mc26.1")
+    localRuntime("maven.modrinth:mcqoy:${property("deps.mcqoy")}")
+    localRuntime("dev.isxander:yet-another-config-lib:${property("deps.yacl")}")
 }
 
 configurations.all {
@@ -209,21 +208,11 @@ publishMods {
     modrinth {
         projectId = property("publish.modrinth") as String
         accessToken = env.MODRINTH_API_KEY.orNull()
-        if (!stonecutter.eval(mcVersion, ">1.21.10")) {
-            minecraftVersions.add(stonecutter.current.version)
-        } else {
-            minecraftVersions.add(property("deps.minecraft").toString())
-        }
+        minecraftVersions.add(property("deps.minecraft").toString())
         minecraftVersions.addAll(additionalVersions)
         requires("fabric-api")
         optional("modmenu")
+        optional("mcqoy")
     }
 
-    curseforge {
-        projectId = property("publish.curseforge") as String
-        accessToken = env.CURSEFORGE_API_KEY.orNull()
-        minecraftVersions.add(stonecutter.current.version)
-        minecraftVersions.addAll(additionalVersions)
-        requires("fabric-api")
-    }
 }

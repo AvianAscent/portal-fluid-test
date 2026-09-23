@@ -1,6 +1,5 @@
 package com.ordana.dimensional_tears.fluids;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
 //? fabric {
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandler;
@@ -11,30 +10,22 @@ import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.block.BlockAndTintGetter;
 import net.minecraft.client.renderer.block.FluidModel;
 import net.minecraft.client.renderer.block.FluidRenderer;
-import net.minecraft.client.renderer.fog.FogData;
-import net.minecraft.client.renderer.fog.environment.FogEnvironment;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.core.BlockPos;
+import net.minecraft.data.AtlasIds;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.ARGB;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.phys.Vec3;
-import org.jetbrains.annotations.NotNull;
-import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 import org.jspecify.annotations.Nullable;
-
-import static com.ordana.dimensional_tears.fluids.DimensionalTearsFluidSpriteSet.renderFog;
 
 public class DimensionalTearsFluidRenderer
     //? fabric
@@ -54,12 +45,30 @@ public class DimensionalTearsFluidRenderer
         return new FluidModel.Unbaked(new Material(DimensionalTearsFluidSpriteSet.DISCONNECTED.location, true), new Material(DimensionalTearsFluidSpriteSet.FLOWING, true), new Material(DimensionalTearsFluidSpriteSet.OVERLAY), null);
     }
 
+    public static TextureAtlasSprite getStillTexture(FluidState fluidState, BlockAndTintGetter getter, BlockPos blockPos) {
+        DimensionalTearsFluidSpriteSet spriteSet = DimensionalTearsFluidSpriteSet.getConnected(getter, blockPos);
+
+        if (spriteSet == null)
+            spriteSet = DimensionalTearsFluidSpriteSet.getDisconnected(getter, blockPos);
+
+        return spriteSet.sprites[0];
+    }
+
+    boolean loaded = false;
+
     //? fabric {
     @Override
     public void renderFluid(FluidRenderer fluidRenderer, BlockPos pos, BlockAndTintGetter level, FluidRenderer.Output output, BlockState blockState, FluidState fluidState) {
+        if (!loaded) {
+			reloadTextures(Minecraft.getInstance().getAtlasManager().getAtlasOrThrow(AtlasIds.BLOCKS));
+            loaded = true;
+		}
         FluidRenderHandler.super.renderFluid(fluidRenderer, pos, level, output, blockState, fluidState);
     }
     //?}
+    public static void reloadTextures(TextureAtlas textureAtlas) {
+        DimensionalTearsFluidSpriteSet.populateSpriteSetArrays(textureAtlas);
+    }
     
     public static void renderScreenEffect(LevelReader levelReader, LocalPlayer player, PoseStack poseStack) {
         //fixme

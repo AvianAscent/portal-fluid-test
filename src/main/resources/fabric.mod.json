@@ -21,7 +21,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-        "com.ordana.dimensional_tears.fabric.DimensionalTearsRootFabric"
+      "com.ordana.dimensional_tears.fabric.DimensionalTearsRootFabric"
     ],
     "client": [
       "com.ordana.dimensional_tears.fabric.DimensionalTearsRootFabricClient"
@@ -33,7 +33,8 @@
   ],
   "depends": {
     "fabric-api": "*",
-    "minecraft": "~26.1"
+    "minecraft": "~26.1",
+    "fabricloader": ">=0.19.0"
   },
   "recommends": {
     "mcqoy": "*"

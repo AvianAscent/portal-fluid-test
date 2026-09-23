@@ -32,10 +32,9 @@ public class DimensionalTearsFluidType extends FluidType {
     }
 
     @Override
-    public boolean move(@NotNull FluidState state, @NotNull LivingEntity entity, @NotNull Vec3 movementVector, double gravity) {
+    public boolean move(LivingEntity entity, Vec3 movementVector, double gravity) {
         DimensionalTearsFluid.move(entity, gravity, entity.getDeltaMovement().y <= 0.0, movementVector);
         return true;
     }
-
 }
 *///?}

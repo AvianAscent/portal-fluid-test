@@ -23,6 +23,7 @@
   ],
   "client": [
     "KeyMappingAccessor",
+    "dimensional_tears.FluidRendererMixin",
     "dimensional_tears.LevelRendererMixin",
     "dimensional_tears.ScreenEffectRendererMixin",
     "tooltip.RhymingGaslightTooltipMixin"

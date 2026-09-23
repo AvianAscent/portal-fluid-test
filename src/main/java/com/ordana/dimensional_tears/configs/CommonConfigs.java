@@ -1,12 +1,9 @@
 package com.ordana.dimensional_tears.configs;
 
-import com.ordana.dimensional_tears.DimensionalTearsRoot;
 import folk.sisby.kaleido.api.WrappedConfig;
 import folk.sisby.kaleido.lib.quiltconfig.api.annotations.FloatRange;
 import folk.sisby.kaleido.lib.quiltconfig.api.annotations.IntegerRange;
 import net.minecraft.SharedConstants;
-
-import java.util.function.Supplier;
 
 public class CommonConfigs extends WrappedConfig {
 
