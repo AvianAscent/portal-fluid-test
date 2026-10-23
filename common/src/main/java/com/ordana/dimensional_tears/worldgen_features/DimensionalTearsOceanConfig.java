@@ -8,8 +8,8 @@ public record DimensionalTearsOceanConfig(int floorElevation, int surfaceElevati
 
     public static final Codec<DimensionalTearsOceanConfig> CODEC = RecordCodecBuilder.create(instance -> instance
         .group(
-            Codec.intRange(0, 128).fieldOf("ocean_floor_elevation").forGetter(DimensionalTearsOceanConfig::floorElevation),
-            Codec.intRange(0, 128).fieldOf("ocean_surface_elevation").forGetter(DimensionalTearsOceanConfig::surfaceElevation)
+            Codec.int.fieldOf("ocean_floor_elevation").forGetter(DimensionalTearsOceanConfig::floorElevation),
+            Codec.int.fieldOf("ocean_surface_elevation").forGetter(DimensionalTearsOceanConfig::surfaceElevation)
         )
         .apply(instance, DimensionalTearsOceanConfig::new)
     );
